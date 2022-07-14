@@ -18,8 +18,8 @@ class PhotoGraph extends StatelessWidget {
         height: heigth,
         width: width * 0.5,
         child: Image.asset(
-          'images/profile1.jpeg',
-          scale: 0.3,
+          'images/profile4.jpeg',
+          // scale: 4,
           fit: BoxFit.cover,
         ),
       ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio/features/landing_page/presentation/pages/landing_page.dart';
 
 void main() {
@@ -14,9 +15,11 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-      ),
+      theme: ThemeData().copyWith(
+          textTheme: GoogleFonts.kalamTextTheme(Theme.of(context)
+              .textTheme
+              .apply(
+                  displayColor: Colors.blueGrey, bodyColor: Colors.blueGrey))),
       home: const LandingPage(),
     );
   }

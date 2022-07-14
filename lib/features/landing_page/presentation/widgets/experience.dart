@@ -17,7 +17,21 @@ class Experience extends StatelessWidget {
       child: SizedBox(
         height: heigth,
         width: width * 0.5,
-        child: const Placeholder(),
+        child: Container(
+          color: const Color.fromARGB(255, 132, 186, 211),
+          child: Column(
+            children: const [
+              Text(
+                'Roque Matias Raverta',
+                style: TextStyle(fontSize: 50),
+              ),
+              Text(
+                'Ingeniero en Sistemas de Informacion',
+                style: TextStyle(fontSize: 30),
+              )
+            ],
+          ),
+        ),
       ),
     );
   }
