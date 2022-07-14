@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:portfolio/features/landing_page/presentation/widgets/social_icon.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 import '../../../../core/constants/constants.dart';
@@ -24,15 +26,15 @@ class SocialNetworks extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            InkWell(
-              hoverColor: Colors.transparent,
-              child: Image.network(
-                linkedInImage,
-                width: 50,
-                height: 50,
-              ),
-              onTap: () => _linkedin(),
-            )
+            SocialIcon(onTapAction: _linkedin, icon: FontAwesomeIcons.linkedin),
+            const SizedBox(
+              width: 20,
+            ),
+            SocialIcon(onTapAction: _github, icon: FontAwesomeIcons.github),
+            const SizedBox(
+              width: 20,
+            ),
+            SocialIcon(onTapAction: _twitter, icon: FontAwesomeIcons.twitter),
           ],
         ),
       ),
@@ -43,6 +45,26 @@ class SocialNetworks extends StatelessWidget {
     Uri url = Uri.https(
       'www.linkedin.com',
       '/in/roquematiasraverta',
+    ); // or add your URL here
+    if (!await launchUrl(url)) {
+      throw 'Could not launch $url';
+    }
+  }
+
+  _github() async {
+    Uri url = Uri.https(
+      'www.github.com',
+      '/milodude',
+    ); // or add your URL here
+    if (!await launchUrl(url)) {
+      throw 'Could not launch $url';
+    }
+  }
+
+  _twitter() async {
+    Uri url = Uri.https(
+      'https://twitter.com',
+      '/MatiasAK',
     ); // or add your URL here
     if (!await launchUrl(url)) {
       throw 'Could not launch $url';
