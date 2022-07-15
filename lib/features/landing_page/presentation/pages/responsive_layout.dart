@@ -1,5 +1,7 @@
 import 'package:flutter/cupertino.dart';
 
+import '../../../../core/constants/constrains.dart';
+
 class ResponsiveLayout extends StatelessWidget {
   const ResponsiveLayout(
       {Key? key, required this.mobilePage, required this.desktopPage})
@@ -11,7 +13,7 @@ class ResponsiveLayout extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return LayoutBuilder(builder: (context, constrains) {
-      return constrains.maxWidth < 698 ? mobilePage : desktopPage;
+      return constrains.maxWidth < mobileWidth ? mobilePage : desktopPage;
     });
   }
 }

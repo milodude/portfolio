@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/features/landing_page/presentation/widgets/about_me.dart';
+import 'package:portfolio/features/landing_page/presentation/widgets/cards_builder.dart';
 
 class Experience extends StatelessWidget {
   const Experience({
@@ -20,15 +22,26 @@ class Experience extends StatelessWidget {
         child: Container(
           color: const Color.fromARGB(255, 132, 186, 211),
           child: Column(
-            children: const [
-              Text(
-                'Roque Matias Raverta',
-                style: TextStyle(fontSize: 50),
+            children: [
+              const Text(
+                'Roque Matías Raverta',
+                style: TextStyle(fontSize: 50, fontWeight: FontWeight.bold),
               ),
-              Text(
+              const SizedBox(
+                height: 10,
+              ),
+              const Text(
                 'Ingeniero en Sistemas de Informacion',
                 style: TextStyle(fontSize: 30),
-              )
+              ),
+              const SizedBox(
+                height: 30,
+              ),
+              SizedBox(height: heigth * 0.45, child: Cardsbuilder()),
+              const SizedBox(
+                height: 30,
+              ),
+              const AboutMe(),
             ],
           ),
         ),
