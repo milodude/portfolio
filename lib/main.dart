@@ -21,7 +21,8 @@ class MyApp extends StatelessWidget {
           textTheme: GoogleFonts.kalamTextTheme(Theme.of(context)
               .textTheme
               .apply(
-                  displayColor: Colors.blueGrey, bodyColor: Colors.blueGrey))),
+                  displayColor: const Color.fromARGB(255, 132, 186, 211),
+                  bodyColor: Colors.blueGrey))),
       home: const ResponsiveLayout(
         desktopPage: DesktopPage(),
         mobilePage: MobilePage(),
