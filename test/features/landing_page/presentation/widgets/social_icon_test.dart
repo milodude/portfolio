@@ -15,13 +15,12 @@ void main() {
     testWidgets('Should add a Social icon widget without any issues',
         (tester) async {
       //ARRANGE
-      const String iconImageUrl = 'https://www.someUrl.com.ar';
       void _redirectToUrl() {}
       //ACT
       await mockNetworkImagesFor(
           () async => await tester.pumpWidget(widgetSetupToBeTested(
                   child: SocialIcon(
-                iconImageUrl: iconImageUrl,
+                icon: Icons.abc_outlined,
                 onTapAction: _redirectToUrl,
               ))));
       await tester.pump();
@@ -35,7 +34,6 @@ void main() {
         (tester) async {
       //ARRANGE
       var testingBool = false;
-      const String iconImageUrl = 'https://www.someUrl.com.ar';
       void _redirectToUrl() {
         testingBool = !testingBool;
       }
@@ -44,7 +42,7 @@ void main() {
       await mockNetworkImagesFor(
           () async => await tester.pumpWidget(widgetSetupToBeTested(
                   child: SocialIcon(
-                iconImageUrl: iconImageUrl,
+                icon: Icons.abc_outlined,
                 onTapAction: _redirectToUrl,
               ))));
       await tester.pump();

@@ -3,8 +3,6 @@ import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:portfolio/features/landing_page/presentation/widgets/social_icon.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-import '../../../../core/constants/constants.dart';
-
 class SocialNetworks extends StatelessWidget {
   const SocialNetworks({
     Key? key,
