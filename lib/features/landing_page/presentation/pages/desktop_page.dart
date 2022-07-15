@@ -4,8 +4,8 @@ import '../widgets/experience.dart';
 import '../widgets/photograph.dart';
 import '../widgets/social_networks.dart';
 
-class LandingPage extends StatelessWidget {
-  const LandingPage({Key? key}) : super(key: key);
+class DesktopPage extends StatelessWidget {
+  const DesktopPage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
