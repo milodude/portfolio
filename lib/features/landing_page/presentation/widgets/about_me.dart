@@ -5,7 +5,7 @@ import 'package:simple_animations/stateless_animation/play_animation.dart';
 import '../../../../core/constants/constants.dart';
 import '../../../../core/constants/texts.dart';
 
-class AboutMe extends StatelessWidget {
+class AboutMe extends StatefulWidget {
   const AboutMe({
     Key? key,
     required this.width,
@@ -16,42 +16,70 @@ class AboutMe extends StatelessWidget {
   final double heigth;
 
   @override
+  State<AboutMe> createState() => _AboutMeState();
+}
+
+class _AboutMeState extends State<AboutMe> {
+  double size = 40;
+  @override
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => showDialog(
           context: context, builder: (context) => buildAboutMe(context)),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: [
-          PlayAnimation<double>(
-            tween: Tween(begin: 0.0, end: 1.0),
-            duration: const Duration(seconds: 2),
-            builder: (context, child, value) {
-              return Opacity(
-                opacity: value,
-                child: Text(
-                  'About Me',
-                  style: TextStyle(
-                    fontSize: width > 541 ? 54 : 34,
-                    fontWeight: FontWeight.bold,
+      child: Padding(
+        padding: const EdgeInsets.only(left: 24.0),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            PlayAnimation<double>(
+              tween: Tween(begin: 0.0, end: 1.0),
+              duration: const Duration(seconds: 2),
+              builder: (context, child, value) {
+                return Opacity(
+                  opacity: value,
+                  child: MouseRegion(
+                    onEnter: (_) {
+                      setState(() {
+                        size = size + 10;
+                      });
+                    },
+                    onExit: (_) {
+                      setState(() {
+                        size = size - 10;
+                      });
+                    },
+                    child: AnimatedContainer(
+                      duration: const Duration(seconds: 2),
+                      curve: Curves.easeIn,
+                      height: 60,
+                      child: Text(
+                        'About Me',
+                        style: TextStyle(
+                          fontSize: widget.width > 541 ? 40 : 34,
+                          fontWeight: FontWeight.bold,
+                          color:
+                              size == 40 ? Colors.blueGrey : Colors.redAccent,
+                        ),
+                      ),
+                    ),
                   ),
-                ),
-              );
-            },
-          ),
-          const SizedBox(
-            width: 20,
-          ),
-          Padding(
-            padding: const EdgeInsets.only(bottom: 55.0),
-            child: SizedBox(
-              width: width > 541 ? 100 : 55,
-              height: width > 541 ? 100 : 55,
-              child: Lottie.network(
-                  'https://assets2.lottiefiles.com/packages/lf20_9unpvaft.json'),
+                );
+              },
             ),
-          ),
-        ],
+            const SizedBox(
+              width: 20,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(bottom: 50.0),
+              child: SizedBox(
+                width: widget.width > 541 ? 80 : 55,
+                height: widget.width > 541 ? 80 : 55,
+                child: Lottie.network(
+                    'https://assets2.lottiefiles.com/packages/lf20_9unpvaft.json'),
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }
