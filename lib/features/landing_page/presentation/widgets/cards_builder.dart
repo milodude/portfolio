@@ -163,7 +163,10 @@ class Cardsbuilder extends StatelessWidget {
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: ElevatedButton(
-                  onPressed: (() => Navigator.of(context).pop()),
+                  onPressed: () =>
+                      WidgetsBinding.instance.addPostFrameCallback((_) {
+                    Navigator.of(context).pop();
+                  }),
                   style: ElevatedButton.styleFrom(
                       fixedSize: const Size(120, 50),
                       primary: Theme.of(context).textTheme.bodySmall?.color),
