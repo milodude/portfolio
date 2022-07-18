@@ -13,12 +13,16 @@ class DesktopPage extends StatelessWidget {
     final width = MediaQuery.of(context).size.width;
 
     return Scaffold(
-      body: Stack(
-        children: [
-          Experience(width: width, heigth: heigth),
-          PhotoGraph(heigth: heigth, width: width),
-          SocialNetworks(heigth: heigth, width: width),
-        ],
+      body: AnimatedContainer(
+        height: heigth,
+        duration: const Duration(milliseconds: 200),
+        child: Stack(
+          children: [
+            Experience(width: width, heigth: heigth),
+            PhotoGraph(heigth: heigth, width: width),
+            SocialNetworks(heigth: heigth, width: width),
+          ],
+        ),
       ),
     );
   }

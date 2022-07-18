@@ -80,17 +80,16 @@ class Cardsbuilder extends StatelessWidget {
                 return ListTile(
                   leading: const Icon(
                     Icons.cases_outlined,
-                    color: Colors.white,
                   ),
                   title: Text(
                     'From: ${experience[index].startDate} To: ${experience[index].endDate}',
-                    style: const TextStyle(color: Colors.white),
                   ),
                   subtitle: Text(
                     experience[index].description,
                     maxLines: 2,
                     overflow: TextOverflow.ellipsis,
-                    style: const TextStyle(color: Colors.white),
+                    style: TextStyle(
+                        color: Theme.of(context).textTheme.bodyText1?.color),
                   ),
                 );
               }),

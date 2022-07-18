@@ -23,25 +23,29 @@ class Experience extends StatelessWidget {
           color: const Color.fromARGB(255, 132, 186, 211),
           child: Column(
             children: [
-              const Text(
-                'Roque Matías Raverta',
-                style: TextStyle(fontSize: 50, fontWeight: FontWeight.bold),
+              Text(
+                width > 912 ? 'Roque Matías Raverta' : 'Roque Raverta',
+                style:
+                    const TextStyle(fontSize: 50, fontWeight: FontWeight.bold),
               ),
               const SizedBox(
                 height: 10,
               ),
               const Text(
-                'Ingeniero en Sistemas de Informacion',
+                'Systems Engineer',
                 style: TextStyle(fontSize: 30),
               ),
               const SizedBox(
-                height: 30,
+                height: 50,
               ),
-              SizedBox(height: heigth * 0.45, child: Cardsbuilder()),
+              SizedBox(height: heigth * 0.40, child: Cardsbuilder()),
               const SizedBox(
                 height: 30,
               ),
-              const AboutMe(),
+              AboutMe(
+                heigth: heigth,
+                width: width,
+              ),
             ],
           ),
         ),
