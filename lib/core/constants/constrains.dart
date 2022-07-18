@@ -1,2 +1,1 @@
-const int mobileWidth = 415;
-const int mobileHeight = 915;
+const int mobileWidth = 690;

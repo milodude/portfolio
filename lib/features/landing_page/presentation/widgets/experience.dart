@@ -21,32 +21,34 @@ class Experience extends StatelessWidget {
         width: width * 0.5,
         child: Container(
           color: const Color.fromARGB(255, 132, 186, 211),
-          child: Column(
-            children: [
-              Text(
-                width > 912 ? 'Roque Matías Raverta' : 'Roque Raverta',
-                style:
-                    const TextStyle(fontSize: 50, fontWeight: FontWeight.bold),
-              ),
-              const SizedBox(
-                height: 10,
-              ),
-              const Text(
-                'Systems Engineer',
-                style: TextStyle(fontSize: 30),
-              ),
-              const SizedBox(
-                height: 50,
-              ),
-              SizedBox(height: heigth * 0.40, child: Cardsbuilder()),
-              const SizedBox(
-                height: 30,
-              ),
-              AboutMe(
-                heigth: heigth,
-                width: width,
-              ),
-            ],
+          child: SingleChildScrollView(
+            child: Column(
+              children: [
+                Text(
+                  width > 912 ? 'Roque Matías Raverta' : 'Roque Raverta',
+                  style: const TextStyle(
+                      fontSize: 50, fontWeight: FontWeight.bold),
+                ),
+                const SizedBox(
+                  height: 10,
+                ),
+                const Text(
+                  'Systems Engineer',
+                  style: TextStyle(fontSize: 30),
+                ),
+                const SizedBox(
+                  height: 50,
+                ),
+                SizedBox(height: heigth * 0.40, child: Cardsbuilder()),
+                const SizedBox(
+                  height: 30,
+                ),
+                AboutMe(
+                  heigth: heigth,
+                  width: width,
+                ),
+              ],
+            ),
           ),
         ),
       ),
