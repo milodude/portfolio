@@ -4,10 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:portfolio/features/landing_page/domain/entities/job_data.dart';
 
 import '../../../../core/constants/texts.dart';
-import 'rotate_animation.dart';
 
 class Cardsbuilder extends StatefulWidget {
-  Cardsbuilder({Key? key}) : super(key: key);
+  const Cardsbuilder({Key? key}) : super(key: key);
 
   @override
   State<Cardsbuilder> createState() => _CardsbuilderState();
@@ -96,8 +95,6 @@ class _CardsbuilderState extends State<Cardsbuilder>
 
   @override
   Widget build(BuildContext context) {
-    print('build cards');
-
     return Column(
       children: [
         Flexible(
