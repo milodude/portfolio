@@ -1,10 +1,24 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
 import 'package:portfolio/features/landing_page/domain/entities/job_data.dart';
 
 import '../../../../core/constants/texts.dart';
+import 'rotate_animation.dart';
 
-class Cardsbuilder extends StatelessWidget {
+class Cardsbuilder extends StatefulWidget {
   Cardsbuilder({Key? key}) : super(key: key);
+
+  @override
+  State<Cardsbuilder> createState() => _CardsbuilderState();
+}
+
+class _CardsbuilderState extends State<Cardsbuilder>
+    with SingleTickerProviderStateMixin {
+  int? _index;
+
+  late AnimationController controller = AnimationController(
+      vsync: this, duration: const Duration(milliseconds: 750));
 
   final List<JobData> experience = <JobData>[
     JobData(
@@ -82,6 +96,8 @@ class Cardsbuilder extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print('build cards');
+
     return Column(
       children: [
         Flexible(
@@ -96,19 +112,43 @@ class Cardsbuilder extends StatelessWidget {
                       context: context,
                       builder: (context) =>
                           buildExperienceDetails(context, experience[index])),
-                  child: ListTile(
-                    leading: const Icon(
-                      Icons.cases_outlined,
-                    ),
-                    title: Text(
-                      'From: ${experience[index].startDate} To: ${experience[index].endDate}',
-                    ),
-                    subtitle: Text(
-                      experience[index].description,
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis,
-                      style: TextStyle(
-                          color: Theme.of(context).textTheme.bodyText1?.color),
+                  child: MouseRegion(
+                    onEnter: ((event) {
+                      _index = index;
+                      controller.forward();
+                    }),
+                    onExit: (event) {
+                      _index = index;
+                      controller.reset();
+                    },
+                    child: ListTile(
+                      leading: AnimatedBuilder(
+                          animation: controller,
+                          builder: (context, snap) {
+                            if (index == _index) {
+                              return Transform.rotate(
+                                  angle: 2 * pi * controller.value,
+                                  child: const Icon(
+                                    Icons.cases_outlined,
+                                    size: 30,
+                                  ));
+                            }
+                            return const Icon(
+                              Icons.cases_outlined,
+                              size: 30,
+                            );
+                          }),
+                      title: Text(
+                        'From: ${experience[index].startDate} To: ${experience[index].endDate}',
+                      ),
+                      subtitle: Text(
+                        experience[index].description,
+                        maxLines: 2,
+                        overflow: TextOverflow.ellipsis,
+                        style: TextStyle(
+                            color:
+                                Theme.of(context).textTheme.bodyText1?.color),
+                      ),
                     ),
                   ),
                 );
@@ -159,7 +199,7 @@ class Cardsbuilder extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 35),
-              //Refactorizar y sacar afuera
+              //TODO: Refactorizar y sacar afuera
               Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: ElevatedButton(
