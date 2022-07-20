@@ -3,9 +3,11 @@ import 'package:flutter/cupertino.dart';
 import '../../../../core/constants/constrains.dart';
 
 class ResponsiveLayout extends StatelessWidget {
-  const ResponsiveLayout(
-      {Key? key, required this.mobilePage, required this.desktopPage})
-      : super(key: key);
+  const ResponsiveLayout({
+    Key? key,
+    required this.mobilePage,
+    required this.desktopPage,
+  }) : super(key: key);
 
   final Widget mobilePage;
   final Widget desktopPage;

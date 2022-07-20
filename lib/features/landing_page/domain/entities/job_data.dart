@@ -5,10 +5,11 @@ class JobData {
   final String description;
   final String company;
 
-  JobData(
-      {required this.startDate,
-      required this.endDate,
-      required this.techs,
-      required this.description,
-      required this.company});
+  JobData({
+    required this.startDate,
+    required this.endDate,
+    required this.techs,
+    required this.description,
+    required this.company,
+  });
 }

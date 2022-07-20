@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:portfolio/features/landing_page/presentation/widgets/about_me.dart';
-import 'package:portfolio/features/landing_page/presentation/widgets/cards_builder.dart';
+import 'package:portfolio/features/landing_page/presentation/pages/desktop/cards_builder.dart';
 
 class Experience extends StatelessWidget {
   const Experience({
@@ -27,7 +27,9 @@ class Experience extends StatelessWidget {
                 Text(
                   width > 912 ? 'Roque Matías Raverta' : 'Roque Raverta',
                   style: const TextStyle(
-                      fontSize: 50, fontWeight: FontWeight.bold),
+                    fontSize: 50,
+                    fontWeight: FontWeight.bold,
+                  ),
                 ),
                 const SizedBox(
                   height: 10,
@@ -39,7 +41,7 @@ class Experience extends StatelessWidget {
                 const SizedBox(
                   height: 50,
                 ),
-                SizedBox(height: heigth * 0.40, child: Cardsbuilder()),
+                SizedBox(height: heigth * 0.40, child: const Cardsbuilder()),
                 const SizedBox(
                   height: 30,
                 ),

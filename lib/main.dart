@@ -18,11 +18,18 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData().copyWith(
-          textTheme: GoogleFonts.kalamTextTheme(Theme.of(context)
-              .textTheme
-              .apply(
-                  displayColor: const Color.fromARGB(255, 132, 186, 211),
-                  bodyColor: Colors.blueGrey))),
+        textTheme: GoogleFonts.kalamTextTheme(
+          Theme.of(context).textTheme.apply(
+                displayColor: const Color.fromARGB(
+                  255,
+                  132,
+                  186,
+                  211,
+                ),
+                bodyColor: Colors.blueGrey,
+              ),
+        ),
+      ),
       home: const ResponsiveLayout(
         desktopPage: DesktopPage(),
         mobilePage: MobilePage(),

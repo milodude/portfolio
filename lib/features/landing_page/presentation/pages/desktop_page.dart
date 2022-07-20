@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-import '../widgets/experience.dart';
-import '../widgets/photograph.dart';
+import 'desktop/experience.dart';
+import 'desktop/photograph.dart';
 import '../widgets/social_networks.dart';
 
 class DesktopPage extends StatelessWidget {

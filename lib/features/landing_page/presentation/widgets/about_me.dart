@@ -25,7 +25,9 @@ class _AboutMeState extends State<AboutMe> {
   Widget build(BuildContext context) {
     return GestureDetector(
       onTap: () => showDialog(
-          context: context, builder: (context) => buildAboutMe(context)),
+        context: context,
+        builder: (context) => buildAboutMe(context),
+      ),
       child: Padding(
         padding: const EdgeInsets.only(left: 24.0),
         child: Row(
@@ -74,7 +76,8 @@ class _AboutMeState extends State<AboutMe> {
                 width: widget.width > 541 ? 80 : 55,
                 height: widget.width > 541 ? 80 : 55,
                 child: Lottie.network(
-                    'https://assets2.lottiefiles.com/packages/lf20_9unpvaft.json'),
+                  'https://assets2.lottiefiles.com/packages/lf20_9unpvaft.json',
+                ),
               ),
             ),
           ],
@@ -118,8 +121,9 @@ class _AboutMeState extends State<AboutMe> {
               child: ElevatedButton(
                 onPressed: (() => Navigator.of(context).pop()),
                 style: ElevatedButton.styleFrom(
-                    fixedSize: const Size(120, 50),
-                    primary: Theme.of(context).textTheme.bodySmall?.color),
+                  fixedSize: const Size(120, 50),
+                  primary: Theme.of(context).textTheme.bodySmall?.color,
+                ),
                 child: const Text(buttonDismiss),
               ),
             ),
