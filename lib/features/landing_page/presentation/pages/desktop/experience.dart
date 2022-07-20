@@ -41,7 +41,10 @@ class Experience extends StatelessWidget {
                 const SizedBox(
                   height: 50,
                 ),
-                SizedBox(height: heigth * 0.40, child: const Cardsbuilder()),
+                SizedBox(
+                  height: heigth * 0.40,
+                  child: const Cardsbuilder(),
+                ),
                 const SizedBox(
                   height: 30,
                 ),
