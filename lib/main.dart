@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'Matias Raverta - Portfolio',
       theme: ThemeData().copyWith(
         textTheme: GoogleFonts.kalamTextTheme(
           Theme.of(context).textTheme.apply(
