@@ -43,9 +43,14 @@ class Experience extends StatelessWidget {
                 const SizedBox(
                   height: 30,
                 ),
-                AboutMe(
-                  heigth: heigth,
-                  width: width,
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    AboutMe(
+                      heigth: heigth,
+                      width: width,
+                    ),
+                  ],
                 ),
               ],
             ),

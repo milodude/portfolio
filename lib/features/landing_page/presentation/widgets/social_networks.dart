@@ -61,7 +61,7 @@ class SocialNetworks extends StatelessWidget {
 
   _twitter() async {
     Uri url = Uri.https(
-      'https://twitter.com',
+      'www.twitter.com',
       '/MatiasAK',
     ); // or add your URL here
     if (!await launchUrl(url)) {

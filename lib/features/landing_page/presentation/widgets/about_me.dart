@@ -29,7 +29,6 @@ class _AboutMeState extends State<AboutMe> {
       child: Padding(
         padding: const EdgeInsets.only(left: 24.0),
         child: Row(
-          mainAxisAlignment: MainAxisAlignment.start,
           children: [
             PlayAnimation<double>(
               tween: Tween(begin: 0.0, end: 1.0),
