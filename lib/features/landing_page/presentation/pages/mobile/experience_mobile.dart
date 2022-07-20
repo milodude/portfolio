@@ -23,9 +23,9 @@ class ExperienceMobile extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           SizedBox(
-            height: heigth * 0.47,
+            height: heigth * 0.50,
             width: width * 0.9,
-            child: BuildExperienceSnapCards(),
+            child: const BuildExperienceSnapCards(),
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
