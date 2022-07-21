@@ -135,7 +135,7 @@ class _CardsbuilderState extends State<Cardsbuilder>
         }),
         style: ElevatedButton.styleFrom(
             fixedSize: const Size(120, 50),
-            primary: Theme.of(context).textTheme.bodySmall?.color),
+            backgroundColor: Theme.of(context).textTheme.bodySmall?.color),
         child: const Text(buttonDismiss),
       ),
     );

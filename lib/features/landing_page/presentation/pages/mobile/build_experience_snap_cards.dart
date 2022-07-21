@@ -1,5 +1,4 @@
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/core/data/experience_data.dart';
 import 'package:portfolio/features/landing_page/domain/entities/job_data.dart';
