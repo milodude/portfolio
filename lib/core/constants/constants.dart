@@ -1,2 +1,2 @@
-const String profilePath = 'images/profile4.jpeg';
-const String aboutMeImagePath = 'images/profile1.jpeg';
+const String profilePath = 'profile4.jpeg';
+const String aboutMeImagePath = 'profile1.jpeg';

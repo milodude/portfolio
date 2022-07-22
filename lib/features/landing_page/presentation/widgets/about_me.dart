@@ -122,7 +122,7 @@ class _AboutMeState extends State<AboutMe> {
                 onPressed: (() => Navigator.of(context).pop()),
                 style: ElevatedButton.styleFrom(
                   fixedSize: const Size(120, 50),
-                  backgroundColor: Theme.of(context).textTheme.bodySmall?.color,
+                  primary: Theme.of(context).textTheme.bodySmall?.color,
                 ),
                 child: const Text(buttonDismiss),
               ),
