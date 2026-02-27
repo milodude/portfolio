@@ -46573,7 +46573,7 @@ break
 case 1:s.nj(n.dy)
 break}}q=this.ga0O()
 p=this.ga0B()
-l=A.aEM(B.ix,B.EZ,o)
+l=A.aEM(B.ix,B.F_,o)
 return A.pC(o,new A.aH(q,p,q,p),B.V,new A.d7(r,l,o,o,o,o,B.iy),B.az,o,o,o,o,o)}}
 A.a1S.prototype={
 E(){return"DynamicSchemeVariant."+this.b}}
@@ -75556,14 +75556,14 @@ O(a){var s=null,r=this.c,q=r*0.5,p=t.E
 return A.oo(s,A.kD(A.ez(s,A.iX(A.b([B.a_w,new A.cs(B.j3,A.iX(A.b([A.d2(r>912?"Roque Mat\xedas Raverta":"Roque Raverta",B.a29,B.aI),B.eH,A.d2("Senior Software Engineer",A.es(s,s,B.k.bJ(0.9),s,s,s,s,s,s,s,s,24,s,s,B.e2,s,s,!0,s,4,s,s,s,s,s,s),s)],p),B.aA),s),B.Ix,new A.cs(B.mH,new A.px(r,s),s)],p),B.aA),B.B,s,s,B.lz,s,s,s,s,s,s,s,s),this.d,q),s,s,q,s,s,s)}}
 A.Me.prototype={
 O(a){var s=null
-return A.oo(s,A.kD(A.aur("profile4.jpeg",B.ix,s),this.c,this.d*0.5),s,s,0,s,s,s)}}
+return A.oo(s,A.kD(A.aur("assets/profile4.jpeg",B.ix,s),this.c,this.d*0.5),s,s,0,s,s,s)}}
 A.nh.prototype={
 af(){return new A.SM()}}
 A.SM.prototype={
 bn(){this.ed()
 var s=this.c
 s.toString
-A.aPq(B.F_,s)},
+A.aPq(B.EZ,s)},
 O(a){var s=null,r=t.l,q=A.cf(a,s,r).w.a.b,p=A.cf(a,s,r).w.a.a
 return A.ac3(s,A.pC(A.iu(B.b_,A.b([new A.I5(p,q,s),new A.Me(q,p,s),new A.rB(q,p,s)],t.E),B.a0,B.ba),s,B.V,s,B.az,s,q,s,s,s))}}
 A.xp.prototype={
@@ -75643,7 +75643,7 @@ O(a){var s=null,r=A.lH(a,B.cI,t.wr),q=this.c,p=t.E
 return A.oo(s,A.kD(A.ez(s,A.iX(A.b([B.kY,B.JH,B.dv,new A.cs(B.j3,A.iX(A.b([A.d2(r.gm3(r),B.a2z,B.aI),B.eH,A.d2(r.gPS(r),A.es(s,s,B.k.bJ(0.9),s,s,s,s,s,s,s,s,18,s,s,B.e2,s,s,!0,s,2,s,s,s,s,s,s),B.aI)],p),B.aA),s),B.Iy,new A.cs(B.mH,new A.px(q,s),s)],p),B.aA),B.B,s,s,B.lz,s,s,s,s,s,s,s,s),this.d,q),s,s,0,s,s,s)}}
 A.LD.prototype={
 O(a){var s=null
-return A.oo(s,A.IP(A.M1(A.kD(A.aur("profile4.jpeg",B.ix,new A.a8M()),this.c,this.d),0.3),!0,s),s,s,0,s,s,s)}}
+return A.oo(s,A.IP(A.M1(A.kD(A.aur("assets/profile4.jpeg",B.ix,new A.a8M()),this.c,this.d),0.3),!0,s),s,s,0,s,s,s)}}
 A.a8M.prototype={
 $4(a,b,c,d){var s,r=null
 if(d)return b
@@ -78847,8 +78847,8 @@ B.eV=new A.i4(3,"hidden")
 B.it=new A.i4(4,"paused")
 B.iu=new A.uC(0,"polite")
 B.iv=new A.uC(1,"assertive")
-B.EZ=new A.mX("profile1.jpeg",null,null)
-B.F_=new A.mX("profile4.jpeg",null,null)
+B.EZ=new A.mX("assets/profile4.jpeg",null,null)
+B.F_=new A.mX("assets/profile1.jpeg",null,null)
 B.b0=new A.pF(0,"up")
 B.c4=new A.pF(1,"right")
 B.be=new A.pF(2,"down")
