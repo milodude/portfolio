@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+
 import '../../../../core/constants/widgets_keys.dart';
 
 class SocialIcon extends StatefulWidget {
@@ -37,7 +38,7 @@ class _SocialIconState extends State<SocialIcon> {
           curve: Curves.easeIn,
           child: Icon(
             widget.icon,
-            color: size == 60 ? Colors.blueGrey : Colors.redAccent,
+            color: size == 60 ? Colors.white : const Color(0xFFD1C4E9),
             size: size,
           ),
         ),

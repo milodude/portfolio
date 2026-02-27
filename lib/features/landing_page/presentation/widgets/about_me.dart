@@ -58,8 +58,9 @@ class _AboutMeState extends State<AboutMe> {
                         style: TextStyle(
                           fontSize: widget.width > 541 ? 40 : 34,
                           fontWeight: FontWeight.bold,
-                          color:
-                              size == 40 ? Colors.blueGrey : Colors.redAccent,
+                          color: size == 40
+                              ? Colors.white
+                              : const Color(0xFFD1C4E9),
                         ),
                       ),
                     ),
