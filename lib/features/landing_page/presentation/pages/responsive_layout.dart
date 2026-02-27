@@ -1,21 +1,31 @@
-import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 
 import '../../../../core/constants/constrains.dart';
 
+/// ResponsiveLayout
+///
+/// Widget that handles the responsiveness of the app by heading to a mobile or
+/// desktop page respectively.It takes two widgets as mandatory arguments. A
+///  [mobilePage] and [desktopPage].
+
 class ResponsiveLayout extends StatelessWidget {
   const ResponsiveLayout({
-    Key? key,
+    super.key,
     required this.mobilePage,
     required this.desktopPage,
-  }) : super(key: key);
+  });
 
-  final Widget mobilePage;
-  final Widget desktopPage;
+  final Widget Function() mobilePage;
+  final Widget Function() desktopPage;
 
   @override
   Widget build(BuildContext context) {
-    return LayoutBuilder(builder: (context, constrains) {
-      return constrains.maxWidth < mobileWidth ? mobilePage : desktopPage;
-    });
+    return LayoutBuilder(
+      builder: (BuildContext context, BoxConstraints constrains) {
+        final Widget devicePage =
+            constrains.isMobile ? mobilePage() : desktopPage();
+        return Scaffold(body: devicePage);
+      },
+    );
   }
 }

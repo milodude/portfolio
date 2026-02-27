@@ -92,8 +92,9 @@ class _CardDetailModalState extends State<_CardDetailModal>
 
   @override
   Widget build(BuildContext context) {
-    if (_buttonRect == null || _screenSize == null)
+    if (_buttonRect == null || _screenSize == null) {
       return const SizedBox.shrink();
+    }
 
     final modalWidth = (_screenSize!.width * 0.8).clamp(300.0, 600.0);
     final modalHeight = (_screenSize!.height * 0.7).clamp(400.0, 800.0);
@@ -114,7 +115,7 @@ class _CardDetailModalState extends State<_CardDetailModal>
               animation: _animation,
               builder: (context, child) {
                 return Container(
-                  color: Colors.black.withOpacity(_animation.value * 0.5),
+                  color: Colors.black.withValues(alpha: _animation.value * 0.5),
                   child: widget.useBlur
                       ? BackdropFilter(
                           filter: ImageFilter.blur(
@@ -163,14 +164,14 @@ class _CardDetailModalState extends State<_CardDetailModal>
                       borderRadius: BorderRadius.circular(24),
                       boxShadow: [
                         BoxShadow(
-                          color:
-                              Colors.black.withOpacity(0.3 * _animation.value),
+                          color: Colors.black
+                              .withValues(alpha: 0.3 * _animation.value),
                           blurRadius: 20,
                           offset: const Offset(0, 10),
                         ),
                       ],
                       border: Border.all(
-                        color: Colors.white.withOpacity(0.1),
+                        color: Colors.white.withValues(alpha: 0.1),
                         width: 1,
                       ),
                     ),
@@ -221,7 +222,7 @@ class _CornerLinesPainter extends CustomPainter {
     final opacity = (progress * 0.4).clamp(0.0, 0.4);
 
     final paint = Paint()
-      ..color = Colors.white.withOpacity(opacity)
+      ..color = Colors.white.withValues(alpha: opacity)
       ..strokeWidth = 1.5
       ..style = PaintingStyle.stroke;
 

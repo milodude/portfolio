@@ -2,6 +2,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:portfolio/core/data/experience_data.dart';
 import 'package:portfolio/features/landing_page/domain/entities/job_data.dart';
+import 'package:portfolio/l10n/app_localizations.dart';
 
 class BuildExperienceSnapCards extends StatefulWidget {
   const BuildExperienceSnapCards({Key? key}) : super(key: key);
@@ -12,10 +13,11 @@ class BuildExperienceSnapCards extends StatefulWidget {
 }
 
 class _BuildExperienceSnapCardsState extends State<BuildExperienceSnapCards> {
-  List<JobData> data = getExperienceData();
-
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    final List<JobData> data = getExperienceData(l10n);
+
     return CarouselSlider.builder(
         options: CarouselOptions(),
         itemCount: data.length,
@@ -26,7 +28,7 @@ class _BuildExperienceSnapCardsState extends State<BuildExperienceSnapCards> {
                 child: Column(
                   children: [
                     Text(
-                      'From: ${data[itemIndex].startDate} To: ${data[itemIndex].endDate}',
+                      '${l10n.from}: ${data[itemIndex].startDate} ${l10n.to}: ${data[itemIndex].endDate}',
                     ),
                     SizedBox(
                       height: 10,
@@ -46,21 +48,6 @@ class _BuildExperienceSnapCardsState extends State<BuildExperienceSnapCards> {
                   ],
                 ),
               ),
-            )
-        //     ListTile(
-        //   title: Text(
-        //     'From: ${data[itemIndex].startDate} To: ${data[itemIndex].endDate}',
-        //   ),
-        //   subtitle: Text(
-        //     data[itemIndex].description,
-        //     maxLines: 15,
-        //     overflow: TextOverflow.ellipsis,
-        //     style: TextStyle(
-        //       color: Theme.of(context).textTheme.bodyLarge?.color,
-        //     ),
-        //   ),
-        // ),
-
-        );
+            ));
   }
 }

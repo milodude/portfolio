@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:portfolio/features/landing_page/presentation/widgets/language_switcher.dart';
+import 'package:portfolio/l10n/app_localizations.dart';
 
 class TopMobile extends StatelessWidget {
   const TopMobile({
@@ -12,6 +14,7 @@ class TopMobile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Positioned(
       left: 0,
       child: SizedBox(
@@ -19,14 +22,17 @@ class TopMobile extends StatelessWidget {
         width: width,
         child: Container(
           color: Theme.of(context).textTheme.bodySmall?.color,
-          child: const Row(
+          child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
+              const SizedBox(height: 10),
+              const LanguageSwitcher(),
+              const Spacer(),
               Padding(
-                padding: EdgeInsets.only(bottom: 50.0),
+                padding: const EdgeInsets.only(bottom: 20.0),
                 child: Text(
-                  'Roque Matias Raverta',
-                  style: TextStyle(fontSize: 24),
+                  l10n.name,
+                  style: const TextStyle(fontSize: 24, color: Colors.white),
                 ),
               ),
             ],

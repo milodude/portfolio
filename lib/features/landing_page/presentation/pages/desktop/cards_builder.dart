@@ -3,6 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:portfolio/features/landing_page/domain/entities/job_data.dart';
 import 'package:portfolio/features/landing_page/presentation/widgets/modal_animation_helper.dart';
+import 'package:portfolio/l10n/app_localizations.dart';
 
 import '../../../../../core/data/experience_data.dart';
 import '../../widgets/elliptical_carousel.dart';
@@ -15,10 +16,11 @@ class Cardsbuilder extends StatefulWidget {
 }
 
 class _CardsbuilderState extends State<Cardsbuilder> {
-  final List<JobData> experience = getExperienceData();
-
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
+    final List<JobData> experience = getExperienceData(l10n);
+
     if (experience.isEmpty) return const SizedBox.shrink();
 
     return EllipticalCarousel(

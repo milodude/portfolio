@@ -13,12 +13,15 @@ dependencies:
   cupertino_icons: ^1.0.2
   flutter:
     sdk: flutter
+  flutter_localizations:
+    sdk: flutter
   font_awesome_flutter: ^10.1.0
   google_fonts: ^4.0.4
   lottie: ^2.3.2
   mockito: ^5.4.4
   simple_animations: ^5.2.0
   url_launcher: ^6.1.5
+  intl: ^0.20.2
 
 dev_dependencies:
   dart_code_metrics: ^5.7.6
@@ -27,10 +30,10 @@ dev_dependencies:
     sdk: flutter
   network_image_mock: ^2.0.1
 flutter:
+  generate: true
   uses-material-design: true
   # To add assets to your application, add an assets section, like this:
   assets:
     - assets/profile1.jpeg
     - assets/profile4.jpeg
-
 

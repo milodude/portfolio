@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
+import 'package:portfolio/l10n/app_localizations.dart';
 import 'package:simple_animations/simple_animations.dart';
 
 import '../../../../core/constants/constants.dart';
-import '../../../../core/constants/texts.dart';
 
 class AboutMe extends StatefulWidget {
   const AboutMe({
@@ -23,6 +23,7 @@ class _AboutMeState extends State<AboutMe> {
   double size = 40;
   @override
   Widget build(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return GestureDetector(
       onTap: () => showDialog(
         context: context,
@@ -54,7 +55,7 @@ class _AboutMeState extends State<AboutMe> {
                       curve: Curves.easeIn,
                       height: 60,
                       child: Text(
-                        'About Me',
+                        l10n.aboutMe,
                         style: TextStyle(
                           fontSize: widget.width > 541 ? 40 : 34,
                           fontWeight: FontWeight.bold,
@@ -88,6 +89,7 @@ class _AboutMeState extends State<AboutMe> {
   }
 
   Widget buildAboutMe(BuildContext context) {
+    final l10n = AppLocalizations.of(context)!;
     return Dialog(
       child: SingleChildScrollView(
         child: Column(
@@ -103,14 +105,14 @@ class _AboutMeState extends State<AboutMe> {
               ),
             ),
             const SizedBox(height: 20),
-            const Padding(
-              padding: EdgeInsets.all(8.0),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
               child: SizedBox(
                 width: 400,
                 child: Text(
-                  aboutMeText,
+                  l10n.aboutMeFull,
                   textAlign: TextAlign.center,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontSize: 18,
                   ),
                 ),
@@ -125,7 +127,7 @@ class _AboutMeState extends State<AboutMe> {
                   fixedSize: const Size(120, 50),
                   backgroundColor: Theme.of(context).textTheme.bodySmall?.color,
                 ),
-                child: const Text(buttonDismiss),
+                child: Text(l10n.dismiss),
               ),
             ),
           ],
