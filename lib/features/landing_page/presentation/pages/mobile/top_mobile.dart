@@ -19,9 +19,9 @@ class TopMobile extends StatelessWidget {
         width: width,
         child: Container(
           color: Theme.of(context).textTheme.bodySmall?.color,
-          child: Row(
+          child: const Row(
             mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
+            children: [
               Padding(
                 padding: EdgeInsets.only(bottom: 50.0),
                 child: Text(

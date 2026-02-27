@@ -32,7 +32,7 @@ class _BuildExperienceSnapCardsState extends State<BuildExperienceSnapCards> {
                       height: 10,
                       width: 250,
                       child: Divider(
-                        color: Theme.of(context).textTheme.bodyText1?.color,
+                        color: Theme.of(context).textTheme.bodyLarge?.color,
                       ),
                     ),
                     Text(
@@ -40,7 +40,7 @@ class _BuildExperienceSnapCardsState extends State<BuildExperienceSnapCards> {
                       maxLines: 15,
                       overflow: TextOverflow.ellipsis,
                       style: TextStyle(
-                        color: Theme.of(context).textTheme.bodyText1?.color,
+                        color: Theme.of(context).textTheme.bodyLarge?.color,
                       ),
                     ),
                   ],
@@ -56,7 +56,7 @@ class _BuildExperienceSnapCardsState extends State<BuildExperienceSnapCards> {
         //     maxLines: 15,
         //     overflow: TextOverflow.ellipsis,
         //     style: TextStyle(
-        //       color: Theme.of(context).textTheme.bodyText1?.color,
+        //       color: Theme.of(context).textTheme.bodyLarge?.color,
         //     ),
         //   ),
         // ),

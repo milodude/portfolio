@@ -88,7 +88,7 @@ class _CardsbuilderState extends State<Cardsbuilder>
                       maxLines: 2,
                       overflow: TextOverflow.ellipsis,
                       style: TextStyle(
-                        color: Theme.of(context).textTheme.bodyText1?.color,
+                        color: Theme.of(context).textTheme.bodyLarge?.color,
                       ),
                     ),
                   ),
@@ -117,7 +117,6 @@ class _CardsbuilderState extends State<Cardsbuilder>
               const SizedBox(height: 10),
               getJobDescription(data),
               const SizedBox(height: 35),
-              //TODO: Refactorizar y sacar afuera
               getDismissButton(context),
             ],
           ),
@@ -135,7 +134,7 @@ class _CardsbuilderState extends State<Cardsbuilder>
         }),
         style: ElevatedButton.styleFrom(
             fixedSize: const Size(120, 50),
-            primary: Theme.of(context).textTheme.bodySmall?.color),
+            backgroundColor: Theme.of(context).textTheme.bodySmall?.color),
         child: const Text(buttonDismiss),
       ),
     );

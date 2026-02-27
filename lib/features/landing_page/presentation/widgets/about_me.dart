@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:lottie/lottie.dart';
-import 'package:simple_animations/stateless_animation/play_animation.dart';
+import 'package:simple_animations/simple_animations.dart';
 
 import '../../../../core/constants/constants.dart';
 import '../../../../core/constants/texts.dart';
@@ -32,10 +32,10 @@ class _AboutMeState extends State<AboutMe> {
         padding: const EdgeInsets.only(left: 24.0),
         child: Row(
           children: [
-            PlayAnimation<double>(
+            PlayAnimationBuilder<double>(
               tween: Tween(begin: 0.0, end: 1.0),
               duration: const Duration(seconds: 2),
-              builder: (context, child, value) {
+              builder: (context, value, child) {
                 return Opacity(
                   opacity: value,
                   child: MouseRegion(
@@ -122,7 +122,7 @@ class _AboutMeState extends State<AboutMe> {
                 onPressed: (() => Navigator.of(context).pop()),
                 style: ElevatedButton.styleFrom(
                   fixedSize: const Size(120, 50),
-                  primary: Theme.of(context).textTheme.bodySmall?.color,
+                  backgroundColor: Theme.of(context).textTheme.bodySmall?.color,
                 ),
                 child: const Text(buttonDismiss),
               ),
