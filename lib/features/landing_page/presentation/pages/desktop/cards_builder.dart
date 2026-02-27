@@ -1,8 +1,8 @@
-import 'dart:math';
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:portfolio/features/landing_page/domain/entities/job_data.dart';
+import 'package:portfolio/features/landing_page/presentation/widgets/modal_animation_helper.dart';
 
 import '../../../../../core/data/experience_data.dart';
 import '../../widgets/elliptical_carousel.dart';
@@ -41,12 +41,7 @@ class ExperienceCard extends StatefulWidget {
 class _ExperienceCardState extends State<ExperienceCard>
     with TickerProviderStateMixin {
   bool _isHovered = false;
-  bool _isExpanded = false;
-
-  late AnimationController controller = AnimationController(
-    vsync: this,
-    duration: const Duration(milliseconds: 750),
-  );
+  final GlobalKey _buttonKey = GlobalKey();
 
   late AnimationController pulseController = AnimationController(
     vsync: this,
@@ -60,9 +55,16 @@ class _ExperienceCardState extends State<ExperienceCard>
 
   @override
   void dispose() {
-    controller.dispose();
     pulseController.dispose();
     super.dispose();
+  }
+
+  void _showDetails() {
+    showCardDetailModal(
+      context: context,
+      buttonKey: _buttonKey,
+      content: _buildDetailContent(),
+    );
   }
 
   @override
@@ -71,16 +73,7 @@ class _ExperienceCardState extends State<ExperienceCard>
       onEnter: (_) => setState(() => _isHovered = true),
       onExit: (_) => setState(() => _isHovered = false),
       child: GestureDetector(
-        onTap: () {
-          setState(() {
-            _isExpanded = !_isExpanded;
-            if (_isExpanded) {
-              controller.forward();
-            } else {
-              controller.reverse();
-            }
-          });
-        },
+        onTap: _showDetails,
         child: AnimatedScale(
           scale: _isHovered ? 1.02 : 1.0,
           duration: const Duration(milliseconds: 400),
@@ -89,11 +82,11 @@ class _ExperienceCardState extends State<ExperienceCard>
             duration: const Duration(milliseconds: 500),
             curve: Curves.fastOutSlowIn,
             width: 550, // Slightly narrower for carousel fit
-            height: _isExpanded ? 600 : 380,
+            height: 380,
             margin: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
             child: Stack(
               children: [
-                if (_isHovered || _isExpanded)
+                if (_isHovered)
                   Positioned.fill(
                     child: Container(
                       decoration: BoxDecoration(
@@ -102,7 +95,7 @@ class _ExperienceCardState extends State<ExperienceCard>
                           BoxShadow(
                             color:
                                 const Color(0xFF8121D0) // Vibrant Purple Glow
-                                    .withValues(alpha: _isExpanded ? 0.5 : 0.3),
+                                    .withValues(alpha: 0.3),
                             blurRadius: 40,
                             spreadRadius: 2,
                           ),
@@ -147,30 +140,17 @@ class _ExperienceCardState extends State<ExperienceCard>
                             ),
                             child: SingleChildScrollView(
                               clipBehavior: Clip.none,
-                              physics: _isExpanded
-                                  ? const BouncingScrollPhysics()
-                                  : const NeverScrollableScrollPhysics(),
+                              physics: const NeverScrollableScrollPhysics(),
                               child: Column(
                                 mainAxisSize: MainAxisSize.min,
                                 children: [
                                   Row(
                                     mainAxisAlignment: MainAxisAlignment.center,
                                     children: [
-                                      AnimatedBuilder(
-                                        animation: controller,
-                                        builder: (context, child) {
-                                          return Transform.rotate(
-                                            angle: 2 * pi * controller.value,
-                                            child: Icon(
-                                              _isExpanded
-                                                  ? Icons.star_rounded
-                                                  : Icons
-                                                      .workspace_premium_outlined,
-                                              size: 38,
-                                              color: Colors.white,
-                                            ),
-                                          );
-                                        },
+                                      const Icon(
+                                        Icons.workspace_premium_outlined,
+                                        size: 38,
+                                        color: Colors.white,
                                       ),
                                       const SizedBox(width: 15),
                                       Flexible(
@@ -198,16 +178,7 @@ class _ExperienceCardState extends State<ExperienceCard>
                                       letterSpacing: 3,
                                     ),
                                   ),
-                                  AnimatedCrossFade(
-                                    duration: const Duration(milliseconds: 500),
-                                    crossFadeState: _isExpanded
-                                        ? CrossFadeState.showSecond
-                                        : CrossFadeState.showFirst,
-                                    firstChild: _buildCompactContent(),
-                                    secondChild: _buildExpandedContent(),
-                                    firstCurve: Curves.easeOut,
-                                    secondCurve: Curves.easeIn,
-                                  ),
+                                  _buildCompactContent(),
                                 ],
                               ),
                             ),
@@ -235,6 +206,7 @@ class _ExperienceCardState extends State<ExperienceCard>
           child: ScaleTransition(
             scale: pulseAnimation,
             child: Container(
+              key: _buttonKey,
               padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 10),
               decoration: BoxDecoration(
                 color: Colors.white.withValues(alpha: 0.15),
@@ -265,66 +237,96 @@ class _ExperienceCardState extends State<ExperienceCard>
     );
   }
 
-  Widget _buildExpandedContent() {
-    return Column(
-      children: [
-        const SizedBox(height: 25),
-        const SizedBox(
-          width: 80,
-          child: Divider(color: Colors.white30, thickness: 2.5),
-        ),
-        const SizedBox(height: 25),
-        Text(
-          widget.data.description,
-          textAlign: TextAlign.center,
-          style: const TextStyle(
-            fontSize: 16,
+  Widget _buildDetailContent() {
+    return SingleChildScrollView(
+      padding: const EdgeInsets.all(40),
+      child: Column(
+        children: [
+          const SizedBox(height: 20),
+          const Icon(
+            Icons.star_rounded,
+            size: 48,
             color: Colors.white,
-            height: 1.6,
-            letterSpacing: 0.5,
           ),
-        ),
-        const SizedBox(height: 35),
-        Text(
-          'TECH STACK',
-          style: TextStyle(
-            color: Colors.white.withValues(alpha: 0.6),
-            fontSize: 12,
-            fontWeight: FontWeight.w900,
-            letterSpacing: 4,
+          const SizedBox(height: 15),
+          Text(
+            widget.data.company,
+            textAlign: TextAlign.center,
+            style: const TextStyle(
+              fontSize: 32,
+              fontWeight: FontWeight.bold,
+              color: Colors.white,
+              letterSpacing: 1.2,
+            ),
           ),
-        ),
-        const SizedBox(height: 15),
-        Wrap(
-          alignment: WrapAlignment.center,
-          runSpacing: 10,
-          spacing: 10,
-          children: widget.data.techs.map((tech) {
-            return Container(
-              padding: const EdgeInsets.symmetric(
-                horizontal: 14,
-                vertical: 6,
-              ),
-              decoration: BoxDecoration(
-                color: Colors.white.withValues(alpha: 0.18),
-                borderRadius: BorderRadius.circular(15),
-                border: Border.all(
-                  color: Colors.white.withValues(alpha: 0.2),
+          const SizedBox(height: 10),
+          Text(
+            '${widget.data.startDate} — ${widget.data.endDate}',
+            style: TextStyle(
+              fontSize: 14,
+              color: Colors.white.withValues(alpha: 0.6),
+              fontWeight: FontWeight.w500,
+              letterSpacing: 3,
+            ),
+          ),
+          const SizedBox(height: 25),
+          const SizedBox(
+            width: 80,
+            child: Divider(color: Colors.white30, thickness: 2.5),
+          ),
+          const SizedBox(height: 35),
+          Text(
+            widget.data.description,
+            textAlign: TextAlign.center,
+            style: const TextStyle(
+              fontSize: 18,
+              color: Colors.white,
+              height: 1.6,
+              letterSpacing: 0.5,
+            ),
+          ),
+          const SizedBox(height: 45),
+          Text(
+            'TECH STACK',
+            style: TextStyle(
+              color: Colors.white.withValues(alpha: 0.6),
+              fontSize: 12,
+              fontWeight: FontWeight.w900,
+              letterSpacing: 4,
+            ),
+          ),
+          const SizedBox(height: 20),
+          Wrap(
+            alignment: WrapAlignment.center,
+            runSpacing: 12,
+            spacing: 12,
+            children: widget.data.techs.map((tech) {
+              return Container(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 16,
+                  vertical: 8,
                 ),
-              ),
-              child: Text(
-                tech,
-                style: const TextStyle(
-                  color: Colors.white,
-                  fontSize: 12,
-                  fontWeight: FontWeight.bold,
+                decoration: BoxDecoration(
+                  color: Colors.white.withValues(alpha: 0.1),
+                  borderRadius: BorderRadius.circular(15),
+                  border: Border.all(
+                    color: Colors.white.withValues(alpha: 0.15),
+                  ),
                 ),
-              ),
-            );
-          }).toList(),
-        ),
-        const SizedBox(height: 25),
-      ],
+                child: Text(
+                  tech,
+                  style: const TextStyle(
+                    color: Colors.white,
+                    fontSize: 14,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              );
+            }).toList(),
+          ),
+          const SizedBox(height: 40),
+        ],
+      ),
     );
   }
 }

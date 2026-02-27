@@ -2,63 +2,111 @@ import 'package:portfolio/features/landing_page/domain/entities/job_data.dart';
 
 List<JobData> getExperienceData() => <JobData>[
       JobData(
-        startDate: '01-2020',
-        endDate: 'In Progress',
-        techs: ['Flutter', 'Dart', 'Bloc', 'Lottie', 'Audio'],
+        startDate: 'nov. 2025',
+        endDate: 'actualidad',
+        techs: [
+          'Flutter',
+          'Dart',
+          'Firebase',
+          'Cloud Functions',
+          'Fastlane',
+          'Clean Architecture'
+        ],
         description:
-            'Lead developer for "La Bomba", a high-stakes mobile table game. '
-            'Architected the state management with Bloc, implemented low-latency '
-            'sound effects, and crafted immersive custom animations to enhance '
-            'player engagement. Successfully published on Google Play Store.',
-        company: 'Two Brains - Lead Developer',
+            'Lideré el desarrollo de una aplicación móvil multiplataforma para profesionales de la salud mental. '
+            'Diseñé e implementé una arquitectura móvil escalable utilizando Flutter y Firebase. '
+            'Optimicé consultas en Firestore, reduciendo costos operativos y mejorando el rendimiento. '
+            'Desarrollé lógica backend con Cloud Functions para recordatorios y notificaciones push. '
+            'Implementé CI/CD con Fastlane y gestioné el ciclo completo hasta la publicación en Google Play Store.',
+        company: 'Arquitecto de Software - Autónomo - Psi turnos',
       ),
       JobData(
-        startDate: '10-2015',
-        endDate: '06-2022',
-        techs: ['Flutter', 'Dart', 'C#', 'Agile'],
+        startDate: 'sept. 2024',
+        endDate: 'actualidad',
+        techs: [
+          'Arquitectura de software',
+          'Flutter',
+          'Clean Architecture',
+          'Modularización',
+          'Unit Testing'
+        ],
         description:
-            'Senior developer for multi-platform media monitoring systems. '
-            'Implemented SignalR real-time updates and architected Angular/Flutter '
-            'frontends for high-traffic financial and media tracking sectors.',
-        company: 'Nuba - Fullstack Engineer',
+            'Lideré mejoras de arquitectura en aplicaciones móviles y backend, aumentando la escalabilidad. '
+            'Definí patrones de arquitectura modular, reduciendo deuda técnica y mejorando la reutilización. '
+            'Introduje estrategias de testing unitario e integración, incrementando la confiabilidad. '
+            'Establecí buenas prácticas de clean code y colaboré en equipos multidisciplinarios bajo Agile/Scrum. '
+            'Realicé optimizaciones continuas sobre sistemas legacy.',
+        company: 'Arquitecto de Software - Freelogic',
       ),
       JobData(
-        startDate: '08-2018',
-        endDate: '09-2019',
-        techs: ['Flutter', 'Dart', 'C#', '.NET', 'Agile'],
-        description: 'Pioneered Flutter adoption for mobile entrepreneurship. '
-            'Designed pixel-perfect Material interfaces and managed state with '
-            'Scoped Model, integrating seamlessly with .NET REST APIs.',
-        company: 'Two Brains - Founder & Dev',
+        startDate: 'sept. 2023',
+        endDate: 'actualidad',
+        techs: [
+          'Bloc',
+          'Flutter',
+          'Offline-first',
+          'Sembast',
+          'REST API',
+          'SOLID',
+          'Unit Testing'
+        ],
+        description:
+            'Diseñé y desarrollé un sistema mobile de gestión de pedidos con arquitectura offline-first. '
+            'Implementé principios de Clean Architecture y gestioné persistencia local con Sembast. '
+            'Integré comunicación segura mediante REST APIs, manejando sincronización de datos y errores. '
+            'Desarrollé testing unitario en capas de presentación, dominio y datos, reduciendo errores en producción.',
+        company: 'Ingeniero de Software - Nini Mayorista',
       ),
       JobData(
-        startDate: '03-2016',
-        endDate: '08-2016',
-        techs: ['C#', '.NET', 'Agile', 'AngularJS'],
+        startDate: 'sept. 2025',
+        endDate: 'feb. 2026',
+        techs: [
+          'Flutter',
+          'Clean Architecture',
+          'Multiplataforma',
+          'Unit Testing',
+          'B2B'
+        ],
         description:
-            'Architected a comprehensive stock management and sales tracking '
-            'SPA. Implemented CI/CD pipelines with AppVeyor and managed '
-            'delivery using Agile/Trello methodologies.',
-        company: 'Self Entrepreneurship',
+            'Implementé funcionalidades clave en aplicaciones Flutter multiplataforma para el sector mayorista. '
+            'Diseñé y apliqué Clean Architecture, mejorando la productividad del equipo y escalabilidad. '
+            'Participé en el desarrollo de apps mobile y web utilizadas por vendedores en entornos productivos. '
+            'Desarrollé tests unitarios y colaboré con equipos de producto y backend para soluciones escalables.',
+        company: 'Arquitecto de Software - HyF',
       ),
       JobData(
-        startDate: '11-2014',
-        endDate: '12-2015',
-        techs: ['C#', '.NET', 'Bootstrap', 'Knockout'],
+        startDate: 'abr. 2024',
+        endDate: 'feb. 2026',
+        techs: [
+          'Flutter',
+          'Firebase',
+          'NoSQL',
+          'Marketplace',
+          'Realtime Database'
+        ],
         description:
-            'Modernized legacy YPF web applications. Developed high-performance '
-            'SPAs for Sancor using Knockout.js and optimized .NET backends '
-            'for large-scale enterprise food order management.',
-        company: 'Streambe - Senior Software Dev',
+            'Diseñé y desarrollé un marketplace de servicios mobile (Android/iOS) conectando usuarios con proveedores. '
+            'Implementé un backend escalable con Firebase Realtime Database para sincronización en tiempo real. '
+            'Desarrollé funcionalidades de descubrimiento de servicios, matching y actualizaciones en tiempo real. '
+            'Apliqué mejores prácticas de arquitectura mobile para garantizar una solución lista para producción.',
+        company: 'Ingeniero de Software - Two Brains',
       ),
       JobData(
-        startDate: '08-2013',
-        endDate: '09-2014',
-        techs: ['C#', '.NET', 'Scrum', 'Unit Testing'],
+        startDate: 'ene. 2020',
+        endDate: 'ago. 2023',
+        techs: [
+          'Flutter',
+          'BLoC',
+          'Animaciones',
+          'UI/UX',
+          'Cloud Firestore',
+          'Google Play'
+        ],
         description:
-            'Consulted for the US Government on mission-critical applications. '
-            'Led unit testing initiatives with MOQ and mentored external '
-            'development teams within a high-velocity Scrum environment.',
-        company: 'Globant - Software Engineer',
+            'Desarrollé un juego de mesa mobile utilizando Flutter, logrando una experiencia fluida y atractiva. '
+            'Implementé manejo de estado con BLoC y diseñé animaciones personalizadas y efectos de sonido. '
+            'Optimicé el rendimiento de renderizado en Android y publiqué exitosamente la app en Play Store. '
+            'Apliqué principios SOLID y buenas prácticas de responsiveness.',
+        company: 'Flutter Developer - Freelance - La bomba',
       ),
     ];

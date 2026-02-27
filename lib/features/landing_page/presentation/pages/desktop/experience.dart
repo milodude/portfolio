@@ -60,7 +60,7 @@ class Experience extends StatelessWidget {
                     ),
                     const SizedBox(height: 10),
                     Text(
-                      'Systems Engineer',
+                      'Senior Software Engineer',
                       style: TextStyle(
                         fontSize: 24,
                         color: Colors.white.withValues(alpha: 0.9),
